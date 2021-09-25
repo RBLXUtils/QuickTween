@@ -1,4 +1,4 @@
-local TweenService: TweenService = game:GetService("TweenService")
+local TweenService = game:GetService("TweenService")
 local FreeThread: thread? = nil
 
 local function DestroyTween(tween: Tween)
@@ -18,7 +18,7 @@ end
 return function(
 	instance: Instance,
 	tweenInfo: TweenInfo,
-	properties: {}
+	properties: {[string]: any}
 ): Tween
 
 	assert(
@@ -33,7 +33,7 @@ return function(
 
 	assert(
 		typeof(properties) == 'table',
-		"Must be a table"
+		"Must be a dictionary"
 	)
 
 	local tween: Tween = TweenService:Create(instance, tweenInfo, properties)
