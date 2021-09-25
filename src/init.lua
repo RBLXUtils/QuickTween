@@ -18,7 +18,7 @@ end
 return function(
 	instance: Instance,
 	tweenInfo: TweenInfo,
-	properties: any
+	properties: {}
 ): Tween
 
 	assert(
