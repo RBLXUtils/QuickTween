@@ -3,9 +3,10 @@ local FreeThread: thread? = nil
 
 local function DestroyTween(tween: Tween)
 	local thread = FreeThread :: thread
-	FreeThread = nil
 
 	while true do
+		FreeThread = nil
+
 		tween.Completed:Wait()
 		tween:Destroy()
 
