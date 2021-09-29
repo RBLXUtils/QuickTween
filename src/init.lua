@@ -15,6 +15,8 @@ local function DestroyTween(tween: Tween)
 	end
 end
 
+-- A nicer tween function which also makes sure
+-- that the tween created is destroyed once completed.
 return function(
 	instance: Instance,
 	tweenInfo: TweenInfo,
@@ -33,7 +35,7 @@ return function(
 
 	assert(
 		typeof(properties) == 'table',
-		"Must be a dictionary"
+		"Must be a table"
 	)
 
 	local tween: Tween = TweenService:Create(instance, tweenInfo, properties)
